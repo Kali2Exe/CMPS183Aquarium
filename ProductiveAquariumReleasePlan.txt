@@ -1,0 +1,42 @@
+﻿Release Plan
+Project: Productive Aquarium
+Team Name: Group 23
+Revision 1:  Jan 25 
+Release 1: March 24 
+
+
+1. High Level Goals: 
+   1. Be able to pick from a wide variety of fish and grow it based on time. 
+   2. Be able to display fish, have them move around on the screen, and have them grow based on time.
+   3. Be able to block websites or punish players for using websites that we or the player themselves deem “unproductive”. 
+   4. Keep track of user stats such as time, “types” of websites visited, actual work done, accurately complete goals, etc. 
+1. Sprint 1 User Stories 1/23/17 - 2/13/17:
+   1. As a user, I would like to raise fish because aquariums are calming.  4.3 SP
+   2. As a user, I would like to be able to block websites because I would use them to procrastinate. 5 SP
+1. Sprint 2 User Stories: 2/13/17 - 3/1/17
+   1. As a user, I would like a easy to use application because I don’t want to spend a long time learning how to play.  3.5 SP
+   2. As a user, I would like to feel that I’m accomplishing something while I work, because it is hard to stay focused on work when there aren’t many rewards. 6 SP
+   3. As a user, I would like to see statistics and graphs based on my time using the app. 5 SP
+1. Sprint 3 User Stories:  3/2/17 - 3/17/17
+   1. As a user, I would like a colorful, aesthetically beautiful display to look at because I do not want to look at boring, bland, things. 8 SP
+   2. As a user, I would like lots of different fish because having only a few kinds of fish is not motivating. 4 SP
+1. Product Backlog:
+Ideas: buy fish based on time, goals completed, or time
+
+
+Web Application/extension
+An app that allows the user to raise fish based on the amount of time
+the app is left open. The longer the app is open, without switching
+to other apps, the more rewarding the fish. Used to monitor productivity,
+phone usage, time, and gives user some motivation to get whatever
+they need done.
+
+
+
+
+Problems, Challenges:
+
+
+Web2py
+Interract with other tabs, websites,
+Art is a challenges

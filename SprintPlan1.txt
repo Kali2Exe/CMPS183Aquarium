@@ -1,0 +1,33 @@
+﻿Sprint 1 Plan
+Project: Productive Aquarium
+Team Name: Group 23
+Revision 1:  Jan 25 
+Release 1: March 24 
+
+
+High Level Goal: Be able to block websites or punish players for using websites that we or the player themselves deem “unproductive” and allow users to view web browsing statistics. 
+
+
+User Stories: 
+1. As a user, I would like to be able to block websites because I would use them to procrastinate.
+   1. Task 1: Integrate with Google Extension API - 4 Hours (Kevin W)
+   2. Task 2: Create website blacklist. - 3 Hours
+   3. Task 3: Create application statistics tracking. - 3 Hours
+   4. Task 4: Window/Tab tracking. - 2 Hours 
+1. As a user, I would like to raise fish because aquariums are calming.   
+   1. Task 1: Create fish class. - 3 Hours (Matthew)
+   2. Task 2: Canvas functionality - 3 Hours (Kyle)
+   3. Task 3: Collision detection with application borders. - 2 Hours (Kyle)
+   4. Task 4: Create button class. - 2 Hours (Matthew)
+
+
+Initial scrum board:
+
+
+        https://trello.com/b/ZSkkbidO/productive-aquarium-scrum-board
+
+
+Scrum times:
+        Monday: 12:00 PM
+        Tuesday: 11:00 AM
+        Thursday: 10:00 AM
