@@ -15,7 +15,7 @@
 //this blacklist might get a little too big and heavy on processing.
 //JS might not have a list structure available
 
-var blacklist = ['https://*.facebook.com/*', 'https://twitter.com/*', 'https://*.reddit.com/*'];
+var blacklist = ['https://www.facebook.com', 'https://twitter.com', 'https://www.reddit.com'];
 
 //http://stackoverflow.com/questions/19956976/block-url-with-a-specific-word-somewhere-in-the-subdomain
 
@@ -50,7 +50,9 @@ chrome.tabs.onActivated.addListener(function (activeInfo) {
     getCurrentTabUrl(function(url) {
        for (i = 0; i <blacklist.length< i++;) {
             if (url == blacklist[i]) {
-                var item = "https://www.google.com/";
+                //chrome.pageAction.show(url);
+                //notification.show();
+                var item ='https://www.google.com/';
                 chrome.tabs.create({'url': item});
             }
         }
