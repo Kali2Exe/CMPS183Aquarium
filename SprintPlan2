@@ -1,0 +1,37 @@
+Sprint 2 Plan
+Project: Productive Aquarium
+Team Name: Fishai (Fomerly Group 23)
+Revision 2: Feb 14 
+Release 1: March 24 
+
+High Level Goal: Polish off the gameplay mechanics and become fully integrated with a web database.
+
+User Stories: 
+As a user, I would like a easy to use application because I don’t want to spend a long time learning how to play.  3.5 SP
+  Tutorial. 2 Hours.
+  Fish creation interface. 5 Hours.
+    White boxing. 2 Hours
+    Button Integration. 2 Hours
+    Fish creation form. 1 Hour. 
+
+As a user, I would like to feel that I’m accomplishing something while I work, because it is hard to stay focused on work when there aren’t many rewards. 6 SP
+  Fish growth mechanics. 1.5 Hours.
+  Application timer. .5 Hours.
+  Blacklist penalty mechanics. 2 Hours
+  URL String dissection. 1.5 Hours
+  Sending data to database. 3 Hours
+
+As a user, I would like my progress to be stored and consistent, because losing my aquarium would be discouraging. 10 SP
+  Create database. 5.5 Hours
+  Creating data storage tables. 2 Hours. 
+  Database reading/writing functionality. 3.5 Hours
+  User Authentication. 1 Hour.
+  Integrating database with Google Extension files and game scripts. 2 Hours.
+
+Scrum board:
+        https://trello.com/b/ZSkkbidO/productive-aquarium-scrum-board
+
+Scrum times:
+        Monday: 7:40 AM
+        Wednesday: 7:40 AM
+        Friday: 7:40 AM
