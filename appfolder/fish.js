@@ -4,7 +4,9 @@ var btnAry = [];
 var mouseman = new MouseManager();
 //var max_fish_offset = 0.1;
 //max_fish_radius = 2.5;
+var background = chrome.extension.getBackgroundPage();
 
+var url = null;
 function init() {
    canvas = document.getElementById('canvas');
     context = canvas.getContext('2d');
@@ -114,5 +116,8 @@ function createFish() {
  document.addEventListener("DOMContentLoaded", function()
  {
      init();
+     //get URL from background script and print to popup's console
+     url = background.globalurl;
+     console.log(url);
  });
  

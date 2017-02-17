@@ -15,12 +15,16 @@
 //this blacklist might get a little too big and heavy on processing.
 //JS might not have a list structure available
 
-var blacklist = ['https://www.facebook.com', 'https://twitter.com', 'https://www.reddit.com'];
+var blacklist = ["https://www.facebook.com/", "https://twitter.com/", "https://www.reddit.com/",
+    "https://www.youtube.com/"];
 
+var globalurl = null;
 //http://stackoverflow.com/questions/19956976/block-url-with-a-specific-word-somewhere-in-the-subdomain
 
 function getCurrentTabUrl(callback) {
-
+  /*tab.url is only available if the "activeTab" permission is declared.
+    // If you want to see the URL of other tabs (e.g. after removing active:true
+    // from |queryInfo|)*/
   var queryInfo = {
     active: true,
     currentWindow: true
@@ -34,6 +38,14 @@ function getCurrentTabUrl(callback) {
 
 
     console.assert(typeof url == 'string', 'tab.url should be a string');
+    console.log(url)
+    /*for (i = 0; i < tabs.length; i++) {
+          console.log('Tab url: ', tabs[i].url)
+      }*/
+
+    /*tabs.forEach(function(tab) {
+        console.log('Tab ID: ', tab.id);
+    });*/
 
     callback(url);
   });
@@ -46,14 +58,17 @@ function getCurrentTabUrl(callback) {
 
 //testing out chrome
 chrome.tabs.onActivated.addListener(function (activeInfo) {
-
+    //console.log(blacklist[0])
     getCurrentTabUrl(function(url) {
+
+    globalurl = url;
        for (i = 0; i <blacklist.length< i++;) {
-            if (url == blacklist[i]) {
+            //console.log(url.localeCompare(blacklist[i]))
+
+            if (url.localeCompare(blacklist[i]) == 0) {
                 //chrome.pageAction.show(url);
                 //notification.show();
-                var item ='https://www.google.com/';
-                chrome.tabs.create({'url': item});
+                window.alert("Testing blacklist")
             }
         }
 
