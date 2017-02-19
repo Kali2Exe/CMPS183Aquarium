@@ -4,6 +4,20 @@
 <body onload="init();"> 
     <canvas id="canvas" width="800" height="600" style="border: 1px solid black;"></canvas><br>
     
+	<script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyC_4qm-B8jjfW5Ac10kdKVS0Tfpe67c1lc",
+    authDomain: "productivityaquarium.firebaseapp.com",
+    databaseURL: "https://productivityaquarium.firebaseio.com",
+    storageBucket: "productivityaquarium.appspot.com",
+    messagingSenderId: "6131845978"
+  };
+  firebase.initializeApp(config);
+</script>
+	
+	
     <script src="sprite.js"></script>
     <script src="mousetracker.js"></script>
     <script src="ButtonClass.js"></script>
