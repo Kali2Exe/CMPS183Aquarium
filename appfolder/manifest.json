@@ -1,16 +1,22 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "Productive Aquarium",
+  "description": "Fish Productivity",
   "version": "1.0",
+
+  //perhaps running background script
+  "background": {
+    "scripts": ["getURL.js"]
+  },
 
   "browser_action": {
     "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_popup": "fish.html"
   },
   "permissions": [
     "activeTab",
+    "tabs",
     "https://ajax.googleapis.com/"
   ]
 }
