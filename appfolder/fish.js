@@ -1,10 +1,12 @@
 var canvas, context;
 var fishAry = [];
 var btnAry = [];
+var uid;
 var mouseman = new MouseManager();
 var background = chrome.extension.getBackgroundPage();
-
 var url = null;
+
+
 
   var config = {
     apiKey: "AIzaSyC_4qm-B8jjfW5Ac10kdKVS0Tfpe67c1lc",
@@ -13,7 +15,9 @@ var url = null;
     storageBucket: "productivityaquarium.appspot.com",
     messagingSenderId: "6131845978"
   };
-  firebase.initializeApp(config);
+    var pAquariumApp = firebase.initializeApp(config);
+	console.log(pAquariumApp.name);
+	defaultDatabase = firebase.database()
 
 function initApp() {
   // Listen for auth state changes.
@@ -26,9 +30,36 @@ function initApp() {
       var emailVerified = user.emailVerified;
       var photoURL = user.photoURL;
       var isAnonymous = user.isAnonymous;
-      var uid = user.uid;
+      uid = user.uid;
       var refreshToken = user.refreshToken;
       var providerData = user.providerData;
+	  
+	  var checkUserData = firebase.database().ref('users/' + uid);
+	  if (checkUserData == null){
+		writeUserData(uid);
+	  }else{
+			var query = firebase.database().ref('users/' + uid).orderByKey();
+				query.once("value")
+					.then(function(snapshot) {
+						snapshot.forEach(function(childSnapshot) {
+							
+							//var key = childSnapshot.key;
+							var childData = childSnapshot.val();
+							
+							
+							//READ ALL RELATIVE FISH INFORMATION FOR EACH FISH;
+							console.log(childData.fish_id);
+							console.log(childData.color);
+							console.log(childData.size);
+							console.log(childData.date);
+							
+							var newFish = new Fish();
+							fishAry.push(newFish);
+						});
+					});
+		}
+	  
+	  
       // [START_EXCLUDE]
       document.getElementById('quickstart-button').textContent = 'Sign out';
       document.getElementById('quickstart-sign-in-status').textContent = 'Signed in';
@@ -44,6 +75,11 @@ function initApp() {
       }, null, '  ');
       // [END_EXCLUDE]
     } else {
+		
+		
+	  // CLEAR FISH ARRAY IF USER LOGS OUT;
+		fishAry = [];
+		
       // Let's try to get a Google auth token programmatically.
       // [START_EXCLUDE]
       document.getElementById('quickstart-button').textContent = 'Sign-in with Google';
@@ -58,10 +94,7 @@ function initApp() {
   document.getElementById('quickstart-button').addEventListener('click', startSignIn, false);
 }
 
-/**
- * Start the auth flow and authorizes to Firebase.
- * @param{boolean} interactive True if the OAuth flow should request with an interactive mode.
- */
+
 function startAuth(interactive) {
   // Request an OAuth token from the Chrome Identity API.
   chrome.identity.getAuthToken({interactive: !!interactive}, function(token) {
@@ -86,9 +119,6 @@ function startAuth(interactive) {
   });
 }
 
-/**
- * Starts the sign-in process.
- */
 function startSignIn() {
   document.getElementById('quickstart-button').disabled = true;
   if (firebase.auth().currentUser) {
@@ -98,6 +128,10 @@ function startSignIn() {
   }
 }
 
+function writeUserData(userId, name, email) {
+  firebase.database().ref('users/' + userId).set({
+  });
+}
 
 function init() {
    canvas = document.getElementById('canvas');
@@ -116,8 +150,7 @@ function init() {
     btnAry[0] = new Button(createFish);
     console.log(createFish);
     btnAry[0].setSpriteAttributes(10, 10, 20, 20, "pressButton");
-    btnAry[0].setSrc("http://www.iconsdb.com/icons/preview/blue/square-xxl.png", "http://www.iconsdb.com/icons/preview/blue/square-xxl.png");
-    fishAry[0] = new Fish(); 
+    btnAry[0].setSrc("http://www.iconsdb.com/icons/preview/blue/square-xxl.png", "http://www.iconsdb.com/icons/preview/blue/square-xxl.png");	
     setInterval(update, 15);
     setInterval(draw, 15);
 }
@@ -143,19 +176,25 @@ function createFish() {
     var newFish = new Fish();
     fishAry.push(newFish);
     console.log(fishAry);
+	
+	//STORE ALL RELATIVE FISH INFORMATION FOR EACH FISH FOR THE USER;
+	var fishListRef = firebase.database().ref('users/' + uid);
+	var newFishRef = fishListRef.push();
+	newFishRef.set({
+		'fish_id': 'Fish Type',
+		'color': 'Fish Color',
+		'date': 'Date Created',
+		'size': 'Fish Size'
+		
+	});
+	
+	
 }
 
  function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 }
 
- //window.onload = function() {
-//	 initApp();
- // init();
- // url = background.globalurl;
- //   console.log(url);
- //};
- 
  
  
  document.addEventListener("DOMContentLoaded", function()
