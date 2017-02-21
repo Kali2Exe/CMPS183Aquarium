@@ -1,16 +1,36 @@
 {
   "manifest_version": 2,
 
-  "name": "Getting started example",
-  "description": "This extension shows a Google Image search result for the current page",
+  "name": "Productive Aquarium",
+  "description": "Fish Productivity",
   "version": "1.0",
+
+  //perhaps running background script
+  "background": {
+    "scripts": ["getURL.js"]
+  },
 
   "browser_action": {
     "default_icon": "icon.png",
-    "default_popup": "popup.html"
+    "default_popup": "fish.html"
   },
   "permissions": [
     "activeTab",
-    "https://ajax.googleapis.com/"
-  ]
+    "tabs",
+    "https://ajax.googleapis.com/",
+	"identity"
+  ],
+  // Adding https://www.gstatic.com/ to the external scripts authorized domains so we can import the firebase JS SDK and access the Realtime Database as well as Firebase Storage.
+  "content_security_policy":"script-src 'self' https://www.gstatic.com/ https://*.firebaseio.com https://www.googleapis.com; object-src 'self'",
+  "oauth2": {
+    // TODO(DEVELOPER): Change the line below to the OAuth Client ID you created as described in https://developer.chrome.com/apps/app_identity#google
+    "client_id": "6131845978-f5shjapq6abvgu55h8rk4vbuj9n7nqnu.apps.googleusercontent.com",
+    "scopes": [
+      "https://www.googleapis.com/auth/userinfo.email",
+      "https://www.googleapis.com/auth/userinfo.profile"
+    ]
+  },
+  // TODO(DEVELOPER): Change the line below to your Chrome Extension's public key as described in https://developer.chrome.com/apps/app_identity#google
+  "key": "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnmQZECIRihqnpaiGWmeFkf0SaBVxb/s0n7Y/IG+IyINcSgnxr5kfxD/K7A3LR0K67vbIvE6AyfQFrPCqwoCZ5JtOMhq5Yljfsq8EH2COZu1N7F0/l8Hq2akOz1oJXhBX2x+ZFb63EgxV/wyHSfoKwILTquY9C1kerdkgV+v1edG++r1CPUsrRYLEzklVhz/kI8DjLG8kq/Eq9HQheI6zIEuVvVzD1KaEBzBeK9fFtG/iEXF7Wy7gyhs3VDVFxAkQeoKm5OEdAidHhoYXGjjjojeQ6k/8121oAFawErAvIsylTHOvZBY2hfIUCEIya0LYL9FKhRcwkVydQpg+DWSXxQIDAQAB"
+
 }
