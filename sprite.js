@@ -44,7 +44,7 @@ Sprite.prototype.uncenter = function() {
 //If you override, keep this.drawChildren();
 Sprite.prototype.draw = function() {
     //console.log("drawing"+this.image.src);
-    ctx.drawImage(this.image, this.x, this.y, this.width, this.height);
+    context.drawImage(this.image, this.x, this.y, this.width, this.height);
     this.drawChildren();
 };
 
