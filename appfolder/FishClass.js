@@ -20,15 +20,33 @@ var Fish =
  
 };
 */
+
+var background = chrome.extension.getBackgroundPage();
+var url = null;
  
 function update() {
+    //update here(change draw)
     //this.move(getRandom(-this.max_fish_offset,this.max_fish_offset));
     this.move();
     this.canvasBoundCheck();
 }
 
 function draw() {
-    context.drawImage(this.image, this.x, this.y, this.width, this.height);
+    //input commands here
+     url = background.globalurl;
+     var currentTime = new Date();
+     var urlTime = background.timers[url];
+     console.log(url);
+     console.log(currentTime);
+     console.log(urlTime);
+     if (currentTime > urlTime.getTime() + 10000) {
+         context.drawImage(this.image, this.x, this.y, this.width*2, this.height*2);
+         console.log('10 seconds passed');
+     } else {
+         context.drawImage(this.image, this.x, this.y, this.width, this.height);
+         console.log('under 10 seconds');
+     }
+    //context.drawImage(this.image, this.x, this.y, this.width, this.height);
 }
 
 function move(){

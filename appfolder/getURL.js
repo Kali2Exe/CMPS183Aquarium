@@ -19,6 +19,7 @@ var blacklist = ["https://www.facebook.com/", "https://twitter.com/", "https://w
     "https://www.youtube.com/"];
 
 var globalurl = null;
+var timers = [];
 //http://stackoverflow.com/questions/19956976/block-url-with-a-specific-word-somewhere-in-the-subdomain
 
 function getCurrentTabUrl(callback) {
@@ -56,12 +57,20 @@ function getCurrentTabUrl(callback) {
 //http://stackoverflow.com/questions/11156479/how-do-i-use-chrome-tabs-onupdated-addlistener
 //http://stackoverflow.com/questions/8457382/opening-a-new-tab-on-google-chrome-extension
 
+
+//http://stackoverflow.com/questions/901115/how-can-i-get-query-string-values-in-javascript
+//https://books.google.com/books?id=ivdjDAAAQBAJ&pg=PA13&lpg=PA13&dq=chrome+extension+current+date&source=bl&ots=s7u2VVXbYp&sig=6zVtJ_czfmTh0-f4aRd0ljyKuKA&hl=en&sa=X&ved=0ahUKEwiy5J-696HSAhXjy1QKHQZlD8Y4ChDoAQgiMAE#v=onepage&q=chrome%20extension%20current%20date&f=false
+//https://developer.chrome.com/apps/app_codelab_alarms
+//http://stackoverflow.com/questions/14082674/timer-for-chrome-extension
+
+
 //testing out chrome
 chrome.tabs.onActivated.addListener(function (activeInfo) {
     //console.log(blacklist[0])
     getCurrentTabUrl(function(url) {
 
     globalurl = url;
+        timers[url] = new Date();
        for (i = 0; i <blacklist.length< i++;) {
             //console.log(url.localeCompare(blacklist[i]))
 
