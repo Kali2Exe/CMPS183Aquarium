@@ -23,15 +23,21 @@ var Fish =
 
 var background = chrome.extension.getBackgroundPage();
 var url = null;
- 
+
+alert(fish_data);
+//movement
 function update() {
-    //update here(change draw)
+
     //this.move(getRandom(-this.max_fish_offset,this.max_fish_offset));
     this.move();
     this.canvasBoundCheck();
 }
 
 function draw() {
+    //pull fish variables
+    //fish_data.size
+    //fish_data.color
+    //var color = firebase.color
     //input commands here
      url = background.globalurl;
      var currentTime = new Date();

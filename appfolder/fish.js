@@ -6,7 +6,7 @@ var mouseman = new MouseManager();
 var background = chrome.extension.getBackgroundPage();
 var url = null;
 
-
+var fish_data = null;
 
 
   var config = {
@@ -47,7 +47,7 @@ function initApp() {
 							//var key = childSnapshot.key;
 							var childData = childSnapshot.val();
 							
-							
+							fish_data = child_data;
 							//READ ALL RELATIVE FISH INFORMATION FOR EACH FISH;
 							console.log(childData.fish_id);
 							console.log(childData.color);
@@ -152,8 +152,8 @@ function init() {
     console.log(createFish);
     btnAry[0].setSpriteAttributes(10, 10, 20, 20, "pressButton");
     btnAry[0].setSrc("http://www.iconsdb.com/icons/preview/blue/square-xxl.png", "http://www.iconsdb.com/icons/preview/blue/square-xxl.png");	
-    setInterval(update, 15);
-    setInterval(draw, 15);
+    setInterval(update, 1000);
+    setInterval(draw, 1000);
 }
 function update() {
     fishAry.forEach(function update(elem) {
