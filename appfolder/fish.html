@@ -1,13 +1,44 @@
+<!DOCTYPE html>
 <html> 
 <head>
+    <link id="stylesheet" rel="stylesheet" href="fish.css">
 </head>
 <body>
-    <canvas id="canvas" width="800" height="600" style="border: 1px solid black;"></canvas><br>
+    <div id="ui">
+        <button id="mode1">Aquarium</button>
+        <button id="mode2">Blacklist</button>
+        
+        <h4 class="one" id="nameHeader">Fish Name</h4>
+        <input class="one" tag="name" type=text placeholder="Freddy" required>
+        <h4 class="one" id="timeHeader">Task Length</h4>
+        <input class="one" tag="time" type="number" placeholder="in hours" required>
+        <h4 class="one" id="descHeader">Task Description</h4>
+        <input class="one" tag="description" type="text" placeholder="optional">
+        <button class="one" id="incubateFish">Incubate</button>
+        <div class="one" id="incubator"></div>
+        <div class="one" id="incubatorHeader">Timer: </div>
+        
+        
+        <h4 class="two" id="nameHeaderB">Site Name</h4>
+        <input class="two" tag="name" type=text placeholder="facebook">
+        <button class="two" id="addEntry">Add to List</button>
+        <button class="two" id="remEntry">Remove from List</button>
+        <h4 class="two" id="blacklistHeader"> <strong>Black-Listed Sites</strong></h4>
+        <ul class="two" id="blacklist"> 
+            <li>Black List Example 1</li>
+            <li>Black Listed Website Example 2</li>
+        </ul>
+        
+        <br>
+    </div>
+    
+    <canvas id="canvas" width="700" height="500" style="border: 1px solid black;"></canvas><br>
 
 	 <script src="https://www.gstatic.com/firebasejs/3.6.9/firebase.js"></script>
 	
     <script src="sprite.js"></script>
     <script src="mousetracker.js"></script>
+    <script src="userInterface.js"></script>
     <script src="ButtonClass.js"></script>
     <script src="FishClass.js"></script>
     <script src="fish.js"></script>

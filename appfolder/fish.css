@@ -1,0 +1,161 @@
+#ui {
+    width:700px;
+    height:100px;
+    border:0.25px solid #AAA;
+    margin-bottom: 5px;
+}
+#mode1 {
+    position: absolute;
+    visibility: visible;
+    top: 15px;
+    left: 12px;
+    width: 80px;
+}
+#mode2 {
+    position: absolute;
+    top: 40px;
+    left: 12px;
+    width: 80px;
+}
+
+.one {
+    visibility: visible;
+}
+
+.two {
+    visibility: hidden;
+}
+
+[tag=name] {
+    position: absolute;
+    top: 35px;
+    left: 110px;
+    width: 100px;
+}
+
+[tag=time] {
+    position: absolute;
+    top: 35px;
+    left: 245px;
+    width: 55px;
+    text-align: center;
+}
+
+[tag=description] {
+    position: absolute;
+    top: 80px;
+    left: 110px;
+    width: 190px;
+    text-align: left;
+}
+
+
+#nameHeader {
+    position: absolute;
+    top: 0px;
+    left: 112px;
+    width: 100px;
+    text-align: center;
+}
+
+#timeHeader {
+    position: absolute;
+    top: 0px;
+    left: 225px;
+    width: 100px;
+    text-align: center;
+}
+
+#descHeader {
+    position: absolute;
+    top: 45px;
+    left: 112px;
+    width: 100px;
+    text-align: center;
+}
+
+#incubateFish {
+    position: absolute;
+    top: 45px;
+    left: 330px;
+    width: 75px;
+    height: 35px;
+    text-align: center;
+}
+
+#incubator {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    position: absolute;
+    top: 22px;
+    left: 430px;
+    width: 272px;
+    height: 82px;
+    text-align: center;  
+}
+#incubatorHeader {
+    background-color: whitesmoke;
+    border: 1px solid black;
+    position: absolute;
+    top: 12px;
+    left: 430px;
+    width: 272px;
+    height: 15px;
+    text-align: center;  
+}
+
+
+#nameHeaderB {
+    position: absolute;
+    top: 0px;
+    left: 112px;
+    width: 100px;
+    text-align: center;
+}
+
+#addEntry {
+    position: absolute;
+    top: 25px;
+    left: 247px;
+    width: 120px;
+    height: 25px;
+    text-align: center;
+}
+#remEntry {
+    position: absolute;
+    top: 70px;
+    left: 247px;
+    width: 120px;
+    height: 25px;
+    text-align: center;
+}
+
+#blacklistHeader {
+    position: absolute;
+    top: -5px;
+    left: 400px;
+    width: 290px;
+    text-align: center;
+    border:0.25px solid #AAA;
+}
+
+#blacklist {
+    position: absolute;
+    top: 15px;
+    left: 400px;
+    width: 250px;
+    height: 75px;
+    border:0.25px solid #AAA;
+    text-align: left;
+    overflow: auto;
+    
+    list-style: none;
+}
+#blacklist li {
+    position: relative;
+    left: -30px;
+    width: 200px;
+    text-align: left;
+    text-overflow: clip;
+    
+}

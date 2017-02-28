@@ -75,9 +75,8 @@ function Fish() {
     Sprite.call(this);
     //this.max_fish_offset = 10;
     //this.fish_theta = Math.random(2*Math.PI)
-    this.xOrigin = Math.round(Math.random()*16) * 50;
-    this.yOrigin = Math.round(Math.random()*12) * 50;
-    console.log(this.xOrigin + " " + this.yOrigin);
+    this.xOrigin = Math.round(Math.random()*14) * 50;
+    this.yOrigin = Math.round(Math.random()*10) * 50;
     this.setSpriteAttributes(this.xOrigin, this.yOrigin, 10, 10, "fish");
     this.setSrc("http://www.clipartkid.com/images/24/red-dot-clip-art-at-clker-com-vector-clip-art-online-royalty-free-W1ZD5z-clipart.png");
     this.center();

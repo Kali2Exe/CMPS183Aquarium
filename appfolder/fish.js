@@ -1,12 +1,11 @@
-var canvas, context;
+var canvas, context, uimode1, uimode2;
 var fishAry = [];
 var btnAry = [];
 var uid;
 var mouseman = new MouseManager();
 var background = chrome.extension.getBackgroundPage();
 var url = null;
-
-
+var panes = backgroundSetup();
 
   var config = {
     apiKey: "AIzaSyC_4qm-B8jjfW5Ac10kdKVS0Tfpe67c1lc",
@@ -38,25 +37,22 @@ function initApp() {
 	  if (checkUserData == null){
 		writeUserData(uid);
 	  }else{
-			var query = firebase.database().ref('users/' + uid).orderByKey();
-				query.once("value")
-					.then(function(snapshot) {
-						snapshot.forEach(function(childSnapshot) {
-							
-							//var key = childSnapshot.key;
-							var childData = childSnapshot.val();
-							
-							
-							//READ ALL RELATIVE FISH INFORMATION FOR EACH FISH;
-							console.log(childData.fish_id);
-							console.log(childData.color);
-							console.log(childData.size);
-							console.log(childData.date);
-							
-							var newFish = new Fish();
-							fishAry.push(newFish);
-						});
-					});
+          var query = firebase.database().ref('users/' + uid).orderByKey();
+          query.once("value").then(function(snapshot) {
+              snapshot.forEach(function(childSnapshot) {
+                //var key = childSnapshot.key;
+                var childData = childSnapshot.val();
+
+                //READ ALL RELATIVE FISH INFORMATION FOR EACH FISH;
+                console.log(childData.fish_id);
+                console.log(childData.color);
+                console.log(childData.size);
+                console.log(childData.date);
+
+                var newFish = new Fish();
+                fishAry.push(newFish);
+                });
+            });
 		}
 	  
 	  
@@ -134,9 +130,14 @@ function writeUserData(userId, name, email) {
 }
 
 function init() {
-   canvas = document.getElementById('canvas');
-    context = canvas.getContext('2d');
-	
+    uimode1 = document.getElementById('mode1');
+    uimode2 = document.getElementById('mode2');
+    canvas = document.getElementById('canvas');
+    context = canvas.getContext('2d');    
+    
+    uimode1.addEventListener('mouseup', function() {uiMode("one");});
+    uimode2.addEventListener('mouseup', function() {uiMode("two");});
+    
     canvas.addEventListener('mousemove', function(evt) {
         mouseman.findTarget(evt);   
     });
@@ -147,13 +148,14 @@ function init() {
         mouseman.findTarget(evt);   
     });
     
+    
     btnAry[0] = new Button(createFish);
-    console.log(createFish);
     btnAry[0].setSpriteAttributes(10, 10, 20, 20, "pressButton");
     btnAry[0].setSrc("http://www.iconsdb.com/icons/preview/blue/square-xxl.png", "http://www.iconsdb.com/icons/preview/blue/square-xxl.png");	
     setInterval(update, 15);
     setInterval(draw, 15);
 }
+
 function update() {
     fishAry.forEach(function update(elem) {
         elem.update();
@@ -162,21 +164,23 @@ function update() {
 
 function draw()
 {
-
     context.clearRect(0, 0, canvas.width, canvas.height);
-    fishAry.forEach(function draw(elem) {
-        elem.draw();
-    }); 
+                                 
+    panes.forEach(function (elem) {
+        elem.draw();                    
+    })
     btnAry.forEach(function draw(elem) {
         elem.draw();
     })
+    fishAry.forEach(function draw(elem) {
+        elem.draw();
+    });
 }
 
 function createFish() {
     var newFish = new Fish();
     fishAry.push(newFish);
-    console.log(fishAry);
-	
+    
 	//STORE ALL RELATIVE FISH INFORMATION FOR EACH FISH FOR THE USER;
 	var fishListRef = firebase.database().ref('users/' + uid);
 	var newFishRef = fishListRef.push();
@@ -186,17 +190,13 @@ function createFish() {
 		'date': 'Date Created',
 		'size': 'Fish Size'
 		
-	});
-	
-	
+	});	
 }
 
- function getRandom(min, max) {
+function getRandom(min, max) {
   return Math.random() * (max - min) + min;
 }
 
- 
- 
  document.addEventListener("DOMContentLoaded", function()
  {
 	 initApp();
