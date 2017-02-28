@@ -1,0 +1,35 @@
+Sprint 3 Plan
+Project: Productive Aquarium
+Team Name: Fishai (Fomerly Group 23)
+Revision 3: Feb 14 
+Release 1: March 24 
+
+High Level Goal: Fully connect user interface with the backend game elements and possibly beautify visual game elements. 
+
+User Stories: 
+ As a user, I would like a colorful, aesthetically beautiful display to look at because 
+            I do not want to look at boring, bland, things. 8 SP
+  Tooltips. 2 Hours.
+  Back-end mechanics implementation. 5.5 Hours.
+    Blacklist implementation. 3 Hours.
+    Fish Growth implementation. 2.5 Hours.
+  Move game to a popup or new tab. 0.5 Hours.
+
+As a user, I would like lots of different fish because having only a few kinds of fish is not motivating. 4 SP
+  Create fish asset. 1.5 Hours.
+  Programmatical fish coloring. 2 hours.
+
+-- As a user, I would like my progress to be stored and consistent, because losing my aquarium would be discouraging. 10 SP
+  Create database. 5.5 Hours
+  Creating data storage tables. 2 Hours. 
+  Database reading/writing functionality. 3.5 Hours
+  User Authentication. 1 Hour.
+  Integrating database with Google Extension files and game scripts. 2 Hours.
+
+Scrum board:
+        https://trello.com/b/ZSkkbidO/productive-aquarium-scrum-board
+
+Scrum times:
+        Monday: 7:40 AM
+        Wednesday: 7:40 AM
+        Friday: 7:40 AM
